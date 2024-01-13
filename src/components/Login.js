@@ -7,14 +7,14 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { auth } from "../utils/firebase";
-import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
+import { USER_AVATAR } from "../utils/constant";
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
-  const navigate = useNavigate();
+
   const dispatch = useDispatch();
 
   const name = useRef(null);
@@ -40,16 +40,16 @@ const Login = () => {
         password.current.value
       )
         .then((userCredential) => {
-          // Signed up
           const user = userCredential.user;
+
+          // User Profile Update
           updateProfile(user, {
             displayName: name.current.value,
-            photoURL: "https://example.com/jane-q-user/profile.jpg",
+            photoURL: USER_AVATAR,
           })
             .then(() => {
               const { uid, displayName, email } = auth.currentUser;
               dispatch(addUser({ uid, displayName, email }));
-              navigate("/browse");
             })
             .catch((error) => {
               setErrorMessage(error);
@@ -70,8 +70,6 @@ const Login = () => {
       )
         .then((userCredential) => {
           const user = userCredential.user;
-          console.log(user);
-          navigate("/browse");
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -90,13 +88,14 @@ const Login = () => {
       <Header />
       <div className="absolute">
         <img
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/594f8025-139a-4a35-b58d-4ecf8fdc507c/d3c4e455-f0bf-4003-b7cd-511dda6da82a/IN-en-20240108-popsignuptwoweeks-perspective_alpha_website_large.jpg"
+          className="w-screen h-screen object-cover"
           alt="logo"
+          src="https://assets.nflxext.com/ffe/siteui/vlv3/594f8025-139a-4a35-b58d-4ecf8fdc507c/d3c4e455-f0bf-4003-b7cd-511dda6da82a/IN-en-20240108-popsignuptwoweeks-perspective_alpha_website_large.jpg"
         />
       </div>
       <form
         onSubmit={(e) => e.preventDefault()}
-        className="w-full md:w-3/12 absolute p-12 bg-black my-36 mx-auto right-0 left-0 text-white rounded-md bg-opacity-80"
+        className="w-3/12 absolute p-12 bg-black my-36 mx-auto right-0 left-0 text-white rounded-md bg-opacity-80"
       >
         <h1 className="font-bold text-3xl my-4">
           {isSignInForm ? "Sign In" : "Sign Up"}

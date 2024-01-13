@@ -1,0 +1,30 @@
+import React from "react";
+import useMovieTrailer from "../hooks/useMovieTrailer";
+import { useSelector } from "react-redux";
+
+const VideoBackground = ({ id }) => {
+  const trailerVideo = useSelector((state) => state.movies.nowTrailerVideos);
+
+  useMovieTrailer(id);
+
+  if (trailerVideo === null) return;
+
+  return (
+    <div className="w-screen">
+      <iframe
+        className="w-screen h-[700px]"
+        src={
+          "https://www.youtube.com/embed/" +
+          trailerVideo?.key +
+          "?autoplay=1&mute=1"
+        }
+        title="YouTube video player"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      ></iframe>
+    </div>
+  );
+};
+
+export default VideoBackground;
+
+// vidoes => vidoes.type === 'trailer'
