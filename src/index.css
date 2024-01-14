@@ -1,3 +1,18 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* add this code into your index.css
+.no-scrollbar add this class to that div of MovieList */

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../utils/firebase";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addUser, removeUser } from "../utils/userSlice";
 import { LOGO, USER_AVATAR } from "../utils/constant";
@@ -37,7 +37,15 @@ const Header = () => {
 
   return (
     <div className="absolute w-screen  px-8 py-2 bg-gradient-to-b from-black z-10 flex justify-between ">
-      <img className="w-56" src={LOGO} alt="logo" />
+      <img className="w-44" src={LOGO} alt="logo" />
+      <div className="flex">
+        <Link to="/">
+          <p className="text-white mr-10">Home</p>
+        </Link>
+        <Link to="/tvlist">
+          <p className="text-white ">TV lists</p>
+        </Link>
+      </div>
       {user && (
         <div className="flex p-2 items-center">
           <img
