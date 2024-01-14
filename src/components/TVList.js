@@ -1,9 +1,11 @@
 import React from "react";
+import Header from "./Header";
 
 const TVList = () => {
   return (
     <div>
-      <h1>TVList</h1>
+      <Header />
+      <h1>TV SHOWS ARE HERE</h1>
     </div>
   );
 };
