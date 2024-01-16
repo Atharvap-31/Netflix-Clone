@@ -8,8 +8,7 @@ export const API_OPTIONS = {
   method: "GET",
   headers: {
     accept: "application/json",
-    Authorization:
-      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjY2M2MWRiM2I0ODhiYzIxYWFkMzZkYzhlY2RhMTJkMiIsInN1YiI6IjY1YTExYjlkY2NkZTA0MDEyYjhiODhjMyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.NeeE0EWmJ_jJo9vMuGk2XELolYwkocXdn3e5mOgmg8w",
+    Authorization: "Bearer " + process.env.REACT_APP_TMBDP_API,
   },
 };
 
@@ -26,4 +25,4 @@ export const SUPPORTED_LANGAUGES = [
   { identifier: "japanese", name: "Japanese" },
 ];
 
-export const OPENAI_KEY = "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";
+export const OPENAI_KEY = process.env.REACT_APP_OPENAI_KEY;

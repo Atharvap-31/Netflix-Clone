@@ -36,10 +36,7 @@ const GptSearchBar = () => {
           className="p-4 m-4 col-span-9 text-lg "
           placeholder={lang[languageSelector].gptSearchPlaceholder}
         />
-        <button
-          onClick={handleSearch}
-          className="col-span-3 m-5 rounded-lg py-2 px-4 bg-red-500 text-white"
-        >
+        <button className="col-span-3 m-5 rounded-lg py-2 px-4 bg-red-500 text-white">
           {lang[languageSelector].Search}
         </button>
       </form>
