@@ -2,7 +2,7 @@ import React from "react";
 import Login from "./Login";
 import Browse from "./Browse";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import TVList from "./TVList";
+import MovieDetails from "./MovieDetails";
 
 const Body = () => {
   const appRoute = createBrowserRouter([
@@ -15,8 +15,8 @@ const Body = () => {
       element: <Browse />,
     },
     {
-      path: "/tvlist",
-      element: <TVList />,
+      path: "/moviedetails/:resId",
+      element: <MovieDetails />,
     },
   ]);
 

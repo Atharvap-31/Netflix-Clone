@@ -1,11 +1,12 @@
 import React from "react";
-import Header from "./Header";
+import { useParams } from "react-router-dom";
 
 const TVList = () => {
+  const { resId } = useParams();
+  // console.log(resId);
   return (
     <div>
-      <Header />
-      <h1>TV SHOWS ARE HERE</h1>
+      <h1>HELLO WORLD</h1>
     </div>
   );
 };

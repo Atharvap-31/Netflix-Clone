@@ -25,3 +25,5 @@ export const SUPPORTED_LANGAUGES = [
   { identifier: "marathi", name: "Marathi" },
   { identifier: "japanese", name: "Japanese" },
 ];
+
+export const OPENAI_KEY = "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";
