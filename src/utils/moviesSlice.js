@@ -6,6 +6,8 @@ const moviesSlice = createSlice({
     nowPlayingMovies: null,
     nowTrailerVideos: null,
     popularMovies: null,
+    topRatedMovies: null,
+    upcomingMovies: null,
     movieDetails: null,
   },
   reducers: {
